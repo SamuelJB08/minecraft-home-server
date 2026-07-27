@@ -1,0 +1,29 @@
+[Unit]
+Description=All the Mods 10 Minecraft Server
+After=network.target
+
+[Service]
+# Run the server under a dedicated, non-root Linux user
+User=minecraft
+
+# Directory containing the Minecraft server files
+WorkingDirectory=/opt/minecraft/server-atm10
+
+# Start the server using the official ATM10 startup script
+ExecStart=/opt/minecraft/server-atm10/startserver.sh
+
+# Automatically restart the server if it exits unexpectedly
+Restart=on-failure
+
+# Wait 10 seconds before attempting to restart
+RestartSec=10
+
+# Allow the Minecraft server to shut down gracefully
+KillSignal=SIGINT
+
+# Treat normal shutdown exit codes as successful
+SuccessExitStatus=0 1
+
+[Install]
+# Start the service as part of the normal multi-user boot process
+WantedBy=multi-user.target
