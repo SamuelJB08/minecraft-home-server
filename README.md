@@ -37,6 +37,9 @@ Detailed documentation is available in the `docs/` directory:
 - [Server Management](docs/server-management.md) - systemd, RCON, monitoring, backups, and ongoing administration
 
 ## Architecture
+
+![Minecraft server running as a systemd service](docs/images/systemd-status.png)
+
 ```text
                          Internet
                             │
