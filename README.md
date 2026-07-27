@@ -119,93 +119,29 @@ The server can be remotely administered using SSH and RCON.
 
 See [Server Management](docs/server-management.md) for the full management and monitoring process.
 
-## Troubleshooting
+## Networking
 
-Several issues were encountered, but quickly resolved during development.
+The server is hosted on a private home network while allowing authorised external players to connect through router port forwarding.
 
-### Connectivity Troubleshooting
+The mini PC uses a reserved private IP address, while Minecraft listens on all available network interfaces.
 
-When external players initially encountered `getsockopt` connection errors, the issue was investigated at multiple layers.
+See [Networking and Troubleshooting](docs/networking.md) for details on the network configuration and connectivity testing.
 
-The Minecraft server was first checked to confirm that it was actively listening on the expected port:
+## Security
 
-```bash
-sudo ss -tulpn | grep 25565
-```
+Sensitive information such as RCON passwords, SSH credentials, private keys, router credentials, and IP addresses has been excluded from this repository.
 
-The Ubuntu firewall was then checked:
+The RCON port is not exposed to the public internet and is accessed locally through SSH..
 
-```bash
-sudo ufw status
-```
-
-The server was confirmed to be listening on all network interfaces, while the Ubuntu firewall was inactive.
-
-The issue was ultimately resolved by configuring port forwarding on the TP-Link router to direct incoming Minecraft traffic to the mini PC.
-
-This demonstrated the importance of troubleshooting connectivity across the full network path rather than assuming the problem was caused by the Minecraft server itself.
-
-### Linux File Permissions
-
-Server configuration files initially presented permission issues when attempting to modify them.
-
-This required understanding Linux file ownership and permissions and ensuring that server files were owned by the dedicated `minecraft` user.
-
-### Server Memory Allocation
-
-The server's JVM configuration was inspected to determine its maximum heap allocation.
-
-Linux memory usage was also checked using:
-
-```bash
-free -h
-```
-
-This helped confirm that the mini PC had sufficient available RAM for the heavily modded server.
-
-### Mod Compatibility
-
-A somewhat unrelated but noteworthy issue occurred when a friend attempted to connect to the server and encountered a client/server mod version mismatch.
-
-The issue was traced to a mismatch in the installed version of CodeChicken Lib. The client was using an incompatible version of the dependency, preventing the connection from being established.
-
-The issue was resolved by correcting the client's installed mod version so that it matched the version required by the server.
-
-### Server Hosting Migration
-
-The project also involved migrating from a third-party Minecraft hosting provider to a self-hosted solution.
-
-The existing server was backed up before the migration. The Ubuntu mini PC was then prepared as a fresh server environment, and the ATM10 server files were transferred and configured on the system.
-
-This required transferring files using SCP, configuring the new server environment, allocating appropriate system resources, and testing connectivity before moving to the self-hosted setup.
-
-## Security Considerations
-
-Sensitive information is intentionally excluded from this repository.
-
-This includes:
-
-- RCON passwords
-- SSH credentials
-- Private SSH keys
-- Router login credentials
-- Public IP addresses
-- Other authentication secrets
-
-Configuration examples use placeholder values instead of real credentials.
-
-The RCON port is not exposed directly to the public internet. RCON administration is performed locally on the server through SSH, reducing the external attack surface.
-
-## Future Improvements
+## Future Plans
 
 Potential future uses for the mini PC include:
 
-- Hosting additional self-hosted services
-- Learning Docker and containerisation
-- Hosting personal cloud storage
-- Experimenting with virtualisation
-- Running additional game servers
-- Exploring self-hosted AI and machine learning applications
+- Learn Docker and containerisation
+- Host additional self-hosted services
+- Experiment with virtualisation
+- Explore personal cloud storage
+- Experiment with self-hosted AI and machine learning applications
 
 ## Project Outcome
 
