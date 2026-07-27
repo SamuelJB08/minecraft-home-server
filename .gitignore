@@ -1,0 +1,34 @@
+# Minecraft world and server data
+world/
+world_nether/
+world_the_end/
+
+# Logs
+logs/
+*.log
+
+# Backups
+backups/
+
+# Runtime files
+crash-reports/
+usercache.json
+whitelist.json
+ops.json
+banned-players.json
+banned-ips.json
+
+# Credentials and secrets
+.env
+*.secret
+*.password
+
+# Server installation files
+*.jar
+*.zip
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
