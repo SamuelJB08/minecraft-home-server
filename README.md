@@ -95,100 +95,29 @@ This system provides sufficient system resources to run the heavily modded ATM10
 | Remote Console | RCON / mcrcon |
 | Network Access | TCP port forwarding |
 
-## Memory Management
+## Deployment
 
-The server uses JVM arguments to control Minecraft's memory allocation.
+The server was deployed manually on a dedicated Ubuntu Server mini PC using SSH and SCP.
 
-The current JVM configuration allocates:
+The deployment involved installing Java 21 and NeoForge, transferring the ATM10 server files, configuring JVM memory allocation, and setting up systemd to manage the server as a persistent background service.
 
-```text
--Xms8G
--Xmx12G
-```
+For the full deployment process, see the [Deployment Guide](docs/deployment.md).
 
-`-Xms8G` sets the initial Java heap size to 8 GB, while `-Xmx12G` allows the Java heap to expand up to a maximum of 12 GB when required.
+## Resource Management
 
+The server is configured with an 8 GB initial JVM heap and a 12 GB maximum heap.
 
-The server's memory requirements were investigated using Linux system monitoring tools to ensure the mini PC had sufficient available RAM for the modded environment.
+Linux monitoring tools such as `free -h` and systemd service status were used to monitor resource usage and ensure the mini PC could support the heavily modded server environment.
 
-Linux memory usage can be checked using:
-
-```bash
-free -h
-```
-
-The JVM configuration can also be inspected to verify the memory allocation used by the running Java process.
+See [Server Management](docs/server-management.md) for more details.
 
 ## Server Management
 
-The server is managed using a dedicated `systemd` service.
+The Minecraft server is managed as a dedicated `systemd` service, allowing it to run independently of an SSH session, start automatically with Ubuntu, and restart automatically after unexpected failures.
 
-This allows the Minecraft server to:
+The server can be remotely administered using SSH and RCON.
 
-- Run independently of an SSH session
-- Start automatically when Ubuntu boots
-- Be started and stopped using standard Linux service commands
-- Restart automatically after unexpected failures
-- Be monitored through the systemd journal
-
-Common management commands include:
-
-```bash
-sudo systemctl start minecraft-atm10
-sudo systemctl stop minecraft-atm10
-sudo systemctl restart minecraft-atm10
-sudo systemctl status minecraft-atm10
-```
-
-Live server logs can be viewed using:
-
-```bash
-sudo journalctl -u minecraft-atm10 -f
-```
-
-The service allows the server to continue running after an SSH session is closed, providing a reliable 24/7 server environment.
-
-## Remote Administration
-
-SSH is used to remotely administer the Ubuntu server.
-
-This allows server management without physically accessing the mini PC.
-
-SCP is used to transfer files from the Windows PC to the Ubuntu server, including server installation files and modpack server files.
-
-RCON is also configured to allow Minecraft console commands to be executed remotely.
-
-For example:
-
-```bash
-mcrcon -H 127.0.0.1 -P 25575 -p 'PASSWORD' "list"
-```
-
-RCON can be used for tasks such as:
-
-- Checking connected players
-- Sending server announcements
-- Managing players
-- Executing Minecraft commands
-- Performing server administration without attaching directly to the Minecraft process
-
-## Networking
-
-The Minecraft server is hosted on a private home network while allowing authorised players outside the network to connect remotely.
-
-The server uses the standard Minecraft TCP port:
-
-```text
-25565
-```
-
-Router port forwarding was configured to forward incoming Minecraft traffic from the public internet to the mini PC hosting the server.
-
-The mini PC was also assigned a reserved private IP address through the router. This ensures that the port forwarding rule continues to target the correct device if the router is restarted or the network reconnects.
-
-The server's `server-ip` setting is left blank, allowing Minecraft to listen on the available network interfaces rather than being restricted to a specific local address.
-
-The network configuration was tested by connecting from both the local network and an external network.
+See [Server Management](docs/server-management.md) for the full management and monitoring process.
 
 ## Troubleshooting
 
@@ -221,12 +150,6 @@ This demonstrated the importance of troubleshooting connectivity across the full
 Server configuration files initially presented permission issues when attempting to modify them.
 
 This required understanding Linux file ownership and permissions and ensuring that server files were owned by the dedicated `minecraft` user.
-
-### RCON Configuration
-
-RCON was configured to allow Minecraft console management without directly attaching to the Minecraft server process.
-
-The `mcrcon` utility was installed and used to verify connectivity and execute Minecraft commands.
 
 ### Server Memory Allocation
 
