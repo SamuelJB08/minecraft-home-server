@@ -1,32 +1,40 @@
 # Self-Hosted Minecraft Server
 
-A self-hosted 24/7 modded Minecraft server deployed and administered on a dedicated mini PC that I wiped and configured with Ubuntu Server.
+A self-hosted 24/7 modded Minecraft server deployed and administered on a dedicated mini PC running Ubuntu Server.
 
-The project began as a way to replace a paid Minecraft server hosting subscription with a self-managed solution for myself and my friends. It developed into a practical Linux server administration project involving server deployment, Java and NeoForge configuration, remote administration, networking, and troubleshooting.
+The project began as a way to replace a paid Minecraft hosting subscription with a self-managed solution for myself and my friends. I wiped the mini PC, installed Ubuntu Server, deployed the All the Mods 10 (ATM10) modpack, and configured the system to operate as a continuously running service.
 
-## Project Overview
+The project developed into a practical Linux infrastructure and server administration project involving:
 
-The server runs the **All the Mods 10 (ATM10)** modpack using **NeoForge** and **Java 21** on a dedicated mini PC running Ubuntu Linux.
-
-The server is designed to operate continuously in the background, allowing players to connect remotely without requiring an active SSH session.
-
-Key components of the setup include:
-
-- Ubuntu Linux server administration
-- Java 21 and NeoForge
-- All the Mods 10 (ATM10)
-- JVM memory allocation and optimisation
-- Resource monitoring and management
-- SSH remote administration
-- SCP file transfer
-- RCON remote console management
+- Linux system administration
+- Java and JVM configuration
+- NeoForge server deployment
+- SSH and SCP remote administration
 - systemd service management
-- Automatic server startup
-- Automatic restart handling
-- Router port forwarding
-- Private IP address reservation
-- Linux file permissions and ownership
-- Server monitoring and troubleshooting
+- Network configuration and port forwarding
+- RCON remote console administration
+- Resource monitoring and management
+- Troubleshooting and technical problem-solving
+
+## Key Highlights
+
+- Migrated from third-party Minecraft hosting to self-hosted infrastructure
+- Deployed a heavily modded Minecraft server on dedicated physical hardware
+- Configured Java 21 and optimised JVM memory allocation
+- Created a systemd service for automatic startup and restart handling
+- Configured remote access through router port forwarding
+- Diagnosed and resolved real-world network connectivity issues
+- Implemented RCON for remote Minecraft administration
+- Used Linux monitoring tools to investigate server resource usage
+- Documented the deployment, networking, and server management processes
+
+## Documentation
+
+Detailed documentation is available in the `docs/` directory:
+
+- [Deployment Guide](docs/deployment.md) - Server installation and deployment process
+- [Networking and Troubleshooting](docs/networking.md) - Network configuration, port forwarding, and connectivity troubleshooting
+- [Server Management](docs/server-management.md) - systemd, RCON, monitoring, backups, and ongoing administration
 
 ## Architecture
 ```text
@@ -280,36 +288,6 @@ This includes:
 Configuration examples use placeholder values instead of real credentials.
 
 The RCON port is not exposed directly to the public internet. RCON administration is performed locally on the server through SSH, reducing the external attack surface.
-
-## Skills Demonstrated
-
-This project provided practical experience with:
-
-- Linux system administration
-- Bash command-line usage
-- SSH remote administration
-- SCP file transfer
-- Linux file permissions and ownership
-- Java runtime configuration
-- JVM memory management
-- NeoForge server deployment
-- systemd service management
-- Network configuration
-- Router port forwarding
-- RCON administration
-- Server monitoring
-- Troubleshooting
-- Resource management
-- Technical problem-solving
-
-## Key achievements
-
-- Migrated from third-party hosting to self-hosted infrastructure
-- Deployed a 24/7 Minecraft server on a dedicated Ubuntu Server mini PC
-- Configured Java 21, NeoForge and JVM memory management
-- Implemented systemd service management and automatic recovery
-- Configured external network access through router port forwarding
-- Diagnosed and resolved real-world connectivity and mod compatibility issues
 
 ## Future Improvements
 
