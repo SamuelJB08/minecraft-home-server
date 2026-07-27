@@ -302,6 +302,15 @@ This project provided practical experience with:
 - Resource management
 - Technical problem-solving
 
+## Key achievements
+
+- Migrated from third-party hosting to self-hosted infrastructure
+- Deployed a 24/7 Minecraft server on a dedicated Ubuntu Server mini PC
+- Configured Java 21, NeoForge and JVM memory management
+- Implemented systemd service management and automatic recovery
+- Configured external network access through router port forwarding
+- Diagnosed and resolved real-world connectivity and mod compatibility issues
+
 ## Future Improvements
 
 Potential future uses for the mini PC include:
