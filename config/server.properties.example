@@ -1,0 +1,82 @@
+# Example Minecraft server.properties configuration
+# This file documents the configuration used by the self-hosted ATM10 server.
+# Replace placeholder values before using in a real server environment.
+
+# Gameplay
+allow-flight=true
+allow-nether=true
+difficulty=hard
+gamemode=survival
+hardcore=false
+pvp=true
+force-gamemode=false
+generate-structures=true
+spawn-animals=true
+spawn-monsters=true
+spawn-npcs=true
+
+# Server settings
+motd=All the Mods 10
+max-players=20
+max-tick-time=180000
+online-mode=true
+enforce-secure-profile=true
+player-idle-timeout=0
+white-list=false
+
+# World settings
+level-name=world
+level-seed=
+level-type=minecraft\:normal
+generate-structures=true
+max-world-size=29999984
+spawn-protection=16
+
+# Network settings
+server-ip=
+server-port=25565
+network-compression-threshold=256
+rate-limit=0
+use-native-transport=true
+
+# Performance
+simulation-distance=8
+view-distance=12
+entity-broadcast-range-percentage=100
+max-chained-neighbor-updates=1000000
+sync-chunk-writes=true
+
+# RCON
+enable-rcon=true
+rcon.port=25575
+rcon.password=CHANGE_ME
+
+# Query
+enable-query=false
+query.port=25565
+
+# Command and permissions
+enable-command-block=false
+function-permission-level=2
+op-permission-level=4
+
+# Server status
+enable-status=true
+hide-online-players=false
+
+# Resource pack
+require-resource-pack=false
+resource-pack=
+resource-pack-id=
+resource-pack-prompt=
+resource-pack-sha1=
+
+# Miscellaneous
+accepts-transfers=false
+broadcast-console-to-ops=true
+broadcast-rcon-to-ops=true
+bug-report-link=
+enable-jmx-monitoring=false
+prevent-proxy-connections=false
+region-file-compression=deflate
+text-filtering-config=
