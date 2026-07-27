@@ -131,7 +131,7 @@ See [Networking and Troubleshooting](docs/networking.md) for details on the netw
 
 Sensitive information such as RCON passwords, SSH credentials, private keys, router credentials, and IP addresses has been excluded from this repository.
 
-The RCON port is not exposed to the public internet and is accessed locally through SSH..
+The RCON port is not exposed to the public internet and is accessed locally through SSH.
 
 ## Future Plans
 
