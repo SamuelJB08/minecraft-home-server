@@ -1,0 +1,38 @@
+# JVM configuration for the All the Mods 10 Minecraft server
+#
+# Xms sets the initial Java heap size.
+# Xmx sets the maximum Java heap size.
+
+-Xms8G
+-Xmx12G
+
+# Use the G1 garbage collector
+-XX:+UseG1GC
+
+# Enable parallel reference processing
+-XX:+ParallelRefProcEnabled
+
+# Target maximum GC pause time
+-XX:MaxGCPauseMillis=200
+
+# Prevent applications from explicitly triggering garbage collection
+-XX:+DisableExplicitGC
+
+# Pre-touch memory pages during JVM startup
+-XX:+AlwaysPreTouch
+
+# Configure G1 garbage collection behaviour
+-XX:G1NewSizePercent=30
+-XX:G1MaxNewSizePercent=40
+-XX:G1HeapRegionSize=8M
+-XX:G1ReservePercent=20
+-XX:G1HeapWastePercent=5
+-XX:G1MixedGCCountTarget=4
+-XX:InitiatingHeapOccupancyPercent=15
+-XX:G1MixedGCLiveThresholdPercent=90
+-XX:G1RSetUpdatingPauseTimePercent=5
+
+# Configure JVM performance
+-XX:SurvivorRatio=32
+-XX:MaxTenuringThreshold=1
+-XX:+PerfDisableSharedMem
