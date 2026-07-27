@@ -95,25 +95,6 @@ This system provides sufficient system resources to run the heavily modded ATM10
 | Remote Console | RCON / mcrcon |
 | Network Access | TCP port forwarding |
 
-## Server Deployment
-
-The server was deployed manually using SSH and SCP.
-
-The general deployment process involved:
-
-1. Preparing the Ubuntu mini PC.
-2. Creating a dedicated `minecraft` Linux user.
-3. Creating a dedicated server directory.
-4. Transferring the ATM10 server files to the mini PC using SCP.
-5. Installing and configuring Java 21.
-6. Installing and configuring NeoForge.
-7. Configuring JVM memory allocation.
-8. Configuring Minecraft server properties.
-9. Setting up RCON for remote console management.
-10. Configuring router port forwarding.
-11. Testing remote connectivity.
-12. Creating a systemd service to manage the server as a background process.
-
 ## Memory Management
 
 The server uses JVM arguments to control Minecraft's memory allocation.
