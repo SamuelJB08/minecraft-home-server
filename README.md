@@ -317,6 +317,12 @@ Potential future uses for the mini PC include:
 
 The project successfully replaced a paid Minecraft hosting service with a self-managed 24/7 server.
 
+## Credits
+
+This project uses the [All the Mods 10 (ATM10)](https://www.curseforge.com/minecraft/modpacks/all-the-mods-10) modpack developed by the ATMTeam.
+
+The ATM10 modpack and its associated content are not included in this repository. The server was installed using the official server files provided through CurseForge.
+
 The final setup allows myself and my friends to connect remotely while the server operates independently in the background.
 
 The project also provided practical experience in Linux administration, networking, remote management, system services, and troubleshooting, while serving as a foundation for further self-hosting and server administration projects.
